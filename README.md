@@ -12,3 +12,14 @@ Usage:
 ```
 
 Where argument is a flattened adjacency matrix of a graph.
+It can be easily used from python:
+
+```
+import networx as nx
+
+G = nx.petersen_graph()
+A = nx.adjacency_matrix(G).todense().tolist()
+adj_str = ''.join([str(el) for row in A for el in row])
+G_hash = os.popen('./wlhash {}'.format(adj_str)).read()
+```
+
